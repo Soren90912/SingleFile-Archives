@@ -19,7 +19,7 @@ layout: none
   <h1>所有 SingleFile 頁面</h1>
   <ul>
     {% for p in site.pages %}
-      {% if p.ext == ".html" and p.name != "index.html" %}
+      {% if p.ext == ".html" and p.name != "index.html" and p.name != "links.html" %}
         <li><a href="{{ p.url | relative_url }}">{{ p.name | remove: ".html" }}</a></li>
       {% endif %}
     {% endfor %}
