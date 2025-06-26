@@ -1,6 +1,7 @@
 ---
 layout: none
 ---
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -10,7 +11,8 @@ layout: none
   <style>
     body { font-family: Arial, sans-serif; padding: 2rem; }
     h1 { color: #333; }
-    ul { list-style: disc inside; }
+    ul { list-style: disc inside; margin-left: 0; padding-left: 0; }
+    li { margin: 0.5rem 0; }
     a { color: #0366d6; text-decoration: none; }
     a:hover { text-decoration: underline; }
   </style>
@@ -21,7 +23,11 @@ layout: none
     {% assign htmls = site.static_files | where_exp: "f", "f.extname == '.html'" %}
     {% for f in htmls %}
       {% if f.path != "index.html" %}
-        <li><a href="{{ f.path | relative_url }}">{{ f.name | remove: ".html" }}</a></li>
+        <li>
+          <a href="{{ f.path | relative_url }}">
+            {{ f.name | remove: ".html" }}
+          </a>
+        </li>
       {% endif %}
     {% endfor %}
   </ul>
