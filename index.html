@@ -1,0 +1,29 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>所有 SingleFile 頁面</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; }
+    h1 { color: #333; }
+    ul { list-style: disc inside; }
+    a { color: #0366d6; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>所有 SingleFile 頁面</h1>
+  <ul>
+    {% assign htmls = site.static_files | where_exp: "f", "f.extname == '.html'" %}
+    {% for f in htmls %}
+      {% if f.path != "index.html" %}
+        <li><a href="{{ f.path | relative_url }}">{{ f.name | remove: ".html" }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</body>
+</html>
